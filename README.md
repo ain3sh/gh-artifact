@@ -21,13 +21,13 @@ gh-attach clip.mp4 report.pdf --repo owner/repo --json
 One-line install:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ain3sh/gh-artifact/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/ain3sh/gh-artifact/refs/heads/main/install.sh | sh
 ```
 
 Install to a custom directory:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ain3sh/gh-artifact/main/install.sh | sh -s -- --bin-dir "$HOME/bin"
+curl -fsSL https://raw.githubusercontent.com/ain3sh/gh-artifact/refs/heads/main/install.sh | sh -s -- --bin-dir "$HOME/bin"
 ```
 
 The installer downloads the source and builds locally, so `go` must already be installed.

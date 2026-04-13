@@ -104,7 +104,7 @@ resolve_source_dir() {
 	archive_url="https://github.com/$DEFAULT_REPO/archive/refs/heads/$REF.tar.gz"
 
 	mkdir -p "$source_root"
-	echo "Downloading $DEFAULT_REPO@$REF..."
+	echo "Downloading $DEFAULT_REPO@$REF..." >&2
 	download "$archive_url" "$archive"
 	tar -xzf "$archive" -C "$source_root"
 
