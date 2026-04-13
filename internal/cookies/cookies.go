@@ -29,7 +29,7 @@ func GetGitHubSession() (*http.Cookie, error) {
 	}
 
 	ctx := context.Background()
-	cookies, err := kooky.ReadCookies(
+	cookies, _ := kooky.ReadCookies(
 		ctx,
 		kooky.Valid,
 		kooky.DomainHasSuffix("github.com"),
@@ -39,9 +39,6 @@ func GetGitHubSession() (*http.Cookie, error) {
 	if len(cookies) > 0 {
 		return &cookies[0].Cookie, nil
 	}
-	if err != nil {
-		return nil, fmt.Errorf("reading browser cookies: %w", err)
-	}
 
-	return nil, fmt.Errorf("no github.com user_session cookie found in any supported browser; either sign into GitHub in a supported browser or set %s", sessionCookieEnvVar)
+	return nil, fmt.Errorf("no github.com user_session cookie found in supported browsers; sign into GitHub in Chrome, Brave, Chromium, or Edge, or set %s", sessionCookieEnvVar)
 }
